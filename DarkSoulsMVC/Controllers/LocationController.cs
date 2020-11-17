@@ -1,4 +1,5 @@
 ﻿using Models.LocationModels;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace DarkSoulsMVC.Controllers
         // GET: Location
         public ActionResult Index()
         {
-            var model = new LocationListItem[0];
+            var service = new LocationService();
+            var model = service.GetLocations();
             return View(model);
         }
 
@@ -25,11 +27,16 @@ namespace DarkSoulsMVC.Controllers
         [HttpPost]
         public ActionResult Create(LocationCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var service = new LocationService();
+
+            service.CreateLocation(model);
+
+            return RedirectToAction("Index");
         }
     }
 }
