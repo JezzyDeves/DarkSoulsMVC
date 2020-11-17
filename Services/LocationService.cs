@@ -16,7 +16,7 @@ namespace Services
             var entity = new Location()
             {
                 Name = model.Name,
-                Description = model.Name
+                Description = model.Description
             };
 
             ctx.Locations.Add(entity);
