@@ -54,6 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BossModels\BossListItem.cs" />
+    <Compile Include="LocationModels\LocationCreate.cs" />
+    <Compile Include="LocationModels\LocationListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
