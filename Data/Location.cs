@@ -16,9 +16,9 @@ namespace Data
         [Required]
         public string Description { get; set; }
 
-        public ICollection<Boss> Bosses { get; set; }
-        public ICollection<Enemy> Enemies { get; set; }
-        public ICollection<Item> Items { get; set; }
+        public ICollection<Boss> Bosses { get; set; } = new List<Boss>();
+        public ICollection<Enemy> Enemies { get; set; } = new List<Enemy>();
+        public ICollection<Item> Items { get; set; } = new List<Item>();
 
     }
 }

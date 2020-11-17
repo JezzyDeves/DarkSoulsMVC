@@ -41,6 +41,7 @@ namespace Services
 
             return new LocationDetail
             {
+                ID = entity.ID,
                 Name = entity.Name,
                 Description = entity.Description,
                 Bosses = entity.Bosses.Select(Boss => Boss.Name).ToList(),
