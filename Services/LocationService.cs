@@ -49,5 +49,24 @@ namespace Services
                 Items = entity.Items.Select(Item => Item.Name).ToList()
             };
         }
+
+        public bool UpdateLocation(LocationEdit model)
+        {
+            var entity = ctx.Locations.Single(e => e.ID == model.ID);
+
+            entity.Name = model.Name;
+            entity.Description = model.Description;
+
+            return ctx.SaveChanges() == 1;
+        }
+
+        public bool DeleteLocation(int id)
+        {
+            var entity = ctx.Locations.Single(e => e.ID == id);
+
+            ctx.Locations.Remove(entity);
+
+            return ctx.SaveChanges() == 1;
+        }
     }
 }

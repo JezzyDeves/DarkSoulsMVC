@@ -57,6 +57,7 @@
     <Compile Include="BossModels\BossListItem.cs" />
     <Compile Include="LocationModels\LocationCreate.cs" />
     <Compile Include="LocationModels\LocationDetail.cs" />
+    <Compile Include="LocationModels\LocationEdit.cs" />
     <Compile Include="LocationModels\LocationListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

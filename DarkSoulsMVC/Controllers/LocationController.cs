@@ -53,5 +53,67 @@ namespace DarkSoulsMVC.Controllers
 
             return View(model);
         }
+
+        //GET: Location/Edit
+        public ActionResult Edit(int id)
+        {
+            var service = new LocationService();
+            var detail = service.GetLocationByID(id);
+            var model = new LocationEdit
+            {
+                ID = detail.ID,
+                Name = detail.Name,
+                Description = detail.Description
+            };
+
+            return View(model);
+        }
+        //POST: Location/Edit
+        [HttpPost]
+        public ActionResult Edit(int id, LocationEdit model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            if (model.ID != id)
+            {
+                ModelState.AddModelError("", "Wrong ID");
+                return View(model);
+            }
+
+            var service = new LocationService();
+
+            if (service.UpdateLocation(model))
+            {
+                TempData["SaveResult"] = "Location updated";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Error");
+            return View(model);
+        }
+
+        //GET: Location/Delete
+        public ActionResult Delete(int id)
+        {
+            var service = new LocationService();
+            var model = service.GetLocationByID(id);
+
+            return View(model);
+        }
+        //POST: Location/Delete
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult DeleteLocation(int id)
+        {
+            var service = new LocationService();
+
+            service.DeleteLocation(id);
+
+            TempData["SaveResult"] = "Location deleted";
+
+            return RedirectToAction("Index");
+        }
     }
 }
