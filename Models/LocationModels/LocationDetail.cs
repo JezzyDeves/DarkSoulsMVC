@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace Models.LocationModels
 {
-    public class LocationListItem
+    public class LocationDetail
     {
         public int ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public ICollection<string> Bosses { get; set; }
+        public ICollection<string> Enemies { get; set; }
+        public ICollection<string> Items { get; set; }
     }
 }

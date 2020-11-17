@@ -34,9 +34,24 @@ namespace DarkSoulsMVC.Controllers
 
             var service = new LocationService();
 
-            service.CreateLocation(model);
+            if (service.CreateLocation(model))
+            {
+                TempData["SaveResult"] = "Location created";
+                return RedirectToAction("Index");
+            }
 
-            return RedirectToAction("Index");
+            ModelState.AddModelError("", "Location could not be created");
+
+            return View(model);
+        }
+
+        //GET: Location/Details
+        public ActionResult Details(int id)
+        {
+            var service = new LocationService();
+            var model = service.GetLocationByID(id);
+
+            return View(model);
         }
     }
 }

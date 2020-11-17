@@ -27,11 +27,26 @@ namespace Services
         {
             var query = ctx.Locations.Select(e => new LocationListItem
             {
+                ID = e.ID,
                 Name = e.Name,
                 Description = e.Description
             });
 
             return query.ToArray();
+        }
+
+        public LocationDetail GetLocationByID(int id)
+        {
+            var entity = ctx.Locations.Single(e => e.ID == id);
+
+            return new LocationDetail
+            {
+                Name = entity.Name,
+                Description = entity.Description,
+                Bosses = entity.Bosses.Select(Boss => Boss.Name).ToList(),
+                Enemies = entity.Enemies.Select(Enemy => Enemy.Name).ToList(),
+                Items = entity.Items.Select(Item => Item.Name).ToList()
+            };
         }
     }
 }
