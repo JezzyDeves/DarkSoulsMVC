@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BossModels\BossCreate.cs" />
     <Compile Include="BossModels\BossListItem.cs" />
     <Compile Include="LocationModels\LocationCreate.cs" />
     <Compile Include="LocationModels\LocationDetail.cs" />
@@ -64,6 +65,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{1CECBBD0-FC47-4ACD-ABCF-55F666F77970}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
