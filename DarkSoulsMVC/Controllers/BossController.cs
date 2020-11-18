@@ -47,5 +47,33 @@ namespace DarkSoulsMVC.Controllers
 
             return View(model);
         }
+
+        //GET: Location/Details
+        public ActionResult Details(int id)
+        {
+            var service = new BossService();
+            var model = service.GetBossByID(id);
+
+            return View(model);
+        }
+
+        //GET: Location/Edit
+        //public ActionResult Edit(int id)
+        //{
+        //    var service = new BossService();
+        //    var detail = service.GetBossByID(id);
+        //    var model = new BossEdit
+        //    {
+        //        Name = model.Name,
+        //        Description = model.Description,
+        //        Health = model.Health,
+        //        Weakness = model.Weakness,
+        //        Location = model.Location,
+        //        LocationID = model.ID,
+        //        Tips = model.Tips
+        //    };
+
+        //    return View(model);
+        //}
     }
 }

@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BossModels\BossCreate.cs" />
+    <Compile Include="BossModels\BossDetail.cs" />
+    <Compile Include="BossModels\BossEdit.cs" />
     <Compile Include="BossModels\BossListItem.cs" />
     <Compile Include="LocationModels\LocationCreate.cs" />
     <Compile Include="LocationModels\LocationDetail.cs" />

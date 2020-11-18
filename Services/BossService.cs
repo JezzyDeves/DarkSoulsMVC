@@ -15,12 +15,28 @@ namespace Services
         {
             var query = ctx.Bosses.Select(e => new BossListItem
             {
+                ID = e.ID,
                 Name = e.Name,
                 Description = e.Description,
                 Health = e.Health
             });
 
             return query.ToArray();
+        }
+
+        public BossDetail GetBossByID(int id)
+        {
+            var entity = ctx.Bosses.Single(e => e.ID == id);
+
+            return new BossDetail
+            {
+                ID = entity.ID,
+                Name = entity.Name,
+                Description = entity.Description,
+                Health = entity.Health,
+                Weakness = entity.Weakness,
+                Tips = entity.Tips
+            };
         }
 
         public bool CreateBoss(BossCreate model)
