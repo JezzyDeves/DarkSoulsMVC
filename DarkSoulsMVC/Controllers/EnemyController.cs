@@ -50,5 +50,14 @@ namespace DarkSoulsMVC.Controllers
 
             return View(model);
         }
+
+        //GET: Enemy/Detail
+        public ActionResult Details(int id)
+        {
+            var service = new EnemyService();
+            var model = service.GetEnemyByID(id);
+
+            return View(model);
+        }
     }
 }

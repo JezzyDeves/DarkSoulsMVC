@@ -59,6 +59,7 @@
     <Compile Include="BossModels\BossEdit.cs" />
     <Compile Include="BossModels\BossListItem.cs" />
     <Compile Include="EnemyModels\EnemyCreate.cs" />
+    <Compile Include="EnemyModels\EnemyDetail.cs" />
     <Compile Include="EnemyModels\EnemyListItem.cs" />
     <Compile Include="LocationModels\LocationCreate.cs" />
     <Compile Include="LocationModels\LocationDetail.cs" />

@@ -24,6 +24,19 @@ namespace Services
             return query.ToArray();
         }
 
+        public EnemyDetail GetEnemyByID(int id)
+        {
+            var entity = ctx.Enemies.Single(e => e.EnemyID == id);
+
+            return new EnemyDetail
+            {
+                EnemyID = entity.EnemyID,
+                Name = entity.Name,
+                Description = entity.Description,
+                Health = entity.Health
+            };
+        }
+
         public bool CreateEnemy(EnemyCreate model)
         {
             var entity = new Enemy
