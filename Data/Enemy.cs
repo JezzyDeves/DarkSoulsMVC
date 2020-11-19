@@ -11,7 +11,7 @@ namespace Data
     public class Enemy
     {
         [Key]
-        public int ID { get; set; }
+        public int EnemyID { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

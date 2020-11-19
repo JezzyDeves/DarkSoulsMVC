@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BossController.cs" />
+    <Compile Include="Controllers\EnemyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -246,6 +247,8 @@
     <Content Include="Views\Boss\Details.cshtml" />
     <Content Include="Views\Boss\Edit.cshtml" />
     <Content Include="Views\Boss\Delete.cshtml" />
+    <Content Include="Views\Enemy\Index.cshtml" />
+    <Content Include="Views\Enemy\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
