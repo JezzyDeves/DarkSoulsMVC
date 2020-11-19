@@ -12,7 +12,7 @@ namespace Models.LocationModels
         public string Name { get; set; }
         public string Description { get; set; }
         public string Bosses { get; set; }
-        public ICollection<string> Enemies { get; set; }
-        public ICollection<string> Items { get; set; }
+        public string Enemies { get; set; }
+        public string Items { get; set; }
     }
 }

@@ -45,8 +45,8 @@ namespace Services
                 Name = entity.Name,
                 Description = entity.Description,
                 Bosses = string.Join(", ", entity.Bosses.Select(Boss => Boss.Name).ToList()),
-                Enemies = entity.Enemies.Select(Enemy => Enemy.Name).ToList(),
-                Items = entity.Items.Select(Item => Item.Name).ToList()
+                Enemies = string.Join(", ", entity.Enemies.Select(Enemy => Enemy.Name).ToList()),
+                Items = string.Join(", ", entity.Items.Select(Item => Item.Name).ToList())
             };
         }
 
