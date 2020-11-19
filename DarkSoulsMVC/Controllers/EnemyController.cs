@@ -105,5 +105,25 @@ namespace DarkSoulsMVC.Controllers
             ModelState.AddModelError("", "Error");
             return View(model);
         }
+
+        //GET: Enemy/Delete
+        public ActionResult Delete(int id)
+        {
+            var service = new EnemyService();
+            var model = service.GetEnemyByID(id);
+
+            return View(model);
+        }
+        //POST: Enemy/Delete
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult DeleteEnemy(int id)
+        {
+            var service = new EnemyService();
+
+            service.DeleteEnemy(id);
+
+            return RedirectToAction("Index");
+        }
     }
 }
