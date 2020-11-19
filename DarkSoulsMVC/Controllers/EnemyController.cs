@@ -59,5 +59,51 @@ namespace DarkSoulsMVC.Controllers
 
             return View(model);
         }
+
+        //GET: Enemy/Edit
+        public ActionResult Edit(int id)
+        {
+            var service = new EnemyService();
+            var detail = service.GetEnemyByID(id);
+            ViewBag.LocationID = new SelectList(ctx.Locations.ToList(), "ID", "Name");
+
+
+            var model = new EnemyEdit
+            {
+                EnemyID = detail.EnemyID,
+                Name = detail.Name,
+                Description = detail.Description,
+                Health = detail.Health,
+                LocationID = detail.LocationID,
+                Location = detail.Location
+            };
+
+
+            return View(model);
+        }
+        //POST: Enemy/Edit
+        [HttpPost]
+        public ActionResult Edit(int id, EnemyEdit model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            if (model.EnemyID != id)
+            {
+                ModelState.AddModelError("", "Wrong ID");
+                return View(model);
+            }
+
+            var service = new EnemyService();
+
+            if (service.UpdateEnemy(model))
+            {
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Error");
+            return View(model);
+        }
     }
 }

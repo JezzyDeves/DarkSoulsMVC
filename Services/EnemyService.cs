@@ -33,7 +33,9 @@ namespace Services
                 EnemyID = entity.EnemyID,
                 Name = entity.Name,
                 Description = entity.Description,
-                Health = entity.Health
+                Health = entity.Health,
+                LocationID = entity.LocationID,
+                Location = entity.Location
             };
         }
 
@@ -48,6 +50,19 @@ namespace Services
             };
 
             ctx.Enemies.Add(entity);
+            return ctx.SaveChanges() == 1;
+        }
+
+        public bool UpdateEnemy(EnemyEdit model)
+        {
+            var entity = ctx.Enemies.Single(e => e.EnemyID == model.EnemyID);
+
+            entity.Name = model.Name;
+            entity.Description = model.Description;
+            entity.Health = model.Health;
+            entity.Location = model.Location;
+            entity.LocationID = model.LocationID;
+
             return ctx.SaveChanges() == 1;
         }
     }

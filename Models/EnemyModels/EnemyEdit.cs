@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Models.EnemyModels
 {
-    public class EnemyDetail
+    public class EnemyEdit
     {
         public int EnemyID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public int Health { get; set; }
-        public int LocationID { get; set; }
         public Location Location { get; set; }
+        public int LocationID { get; set; }
     }
 }
