@@ -245,6 +245,7 @@
     <Content Include="Views\Boss\Create.cshtml" />
     <Content Include="Views\Boss\Details.cshtml" />
     <Content Include="Views\Boss\Edit.cshtml" />
+    <Content Include="Views\Boss\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -73,5 +73,14 @@ namespace Services
 
             return ctx.SaveChanges() == 1;
         }
+
+        public bool DeleteBoss(int id)
+        {
+            var entity = ctx.Bosses.Single(e => e.ID == id);
+
+            ctx.Bosses.Remove(entity);
+
+            return ctx.SaveChanges() == 1;
+        }
     }
 }

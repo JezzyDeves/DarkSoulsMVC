@@ -105,5 +105,26 @@ namespace DarkSoulsMVC.Controllers
             ModelState.AddModelError("", "Error");
             return View(model);
         }
+        //GET: Boss/Delete
+        public ActionResult Delete(int id)
+        {
+            var service = new BossService();
+            var model = service.GetBossByID(id);
+
+            return View(model);
+        }
+        //POST: Boss/Delete
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult DeleteBoss(int id)
+        {
+            var service = new BossService();
+
+            service.DeleteBoss(id);
+
+            TempData["SaveResult"] = "Boss deleted";
+
+            return RedirectToAction("Index");
+        }
     }
 }
