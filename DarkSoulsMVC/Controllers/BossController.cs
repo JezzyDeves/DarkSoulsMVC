@@ -11,6 +11,7 @@ namespace DarkSoulsMVC.Controllers
 {
     public class BossController : Controller
     {
+        private readonly ApplicationDbContext ctx = new ApplicationDbContext();
         // GET: Boss
         public ActionResult Index()
         {
@@ -48,7 +49,7 @@ namespace DarkSoulsMVC.Controllers
             return View(model);
         }
 
-        //GET: Location/Details
+        //GET: Boss/Details
         public ActionResult Details(int id)
         {
             var service = new BossService();
@@ -57,23 +58,52 @@ namespace DarkSoulsMVC.Controllers
             return View(model);
         }
 
-        //GET: Location/Edit
-        //public ActionResult Edit(int id)
-        //{
-        //    var service = new BossService();
-        //    var detail = service.GetBossByID(id);
-        //    var model = new BossEdit
-        //    {
-        //        Name = model.Name,
-        //        Description = model.Description,
-        //        Health = model.Health,
-        //        Weakness = model.Weakness,
-        //        Location = model.Location,
-        //        LocationID = model.ID,
-        //        Tips = model.Tips
-        //    };
+        //GET: Boss/Edit
+        public ActionResult Edit(int id)
+        {
+            var service = new BossService();
+            var detail = service.GetBossByID(id);
 
-        //    return View(model);
-        //}
+            var locationService = new LocationService();
+            ViewBag.LocationID = new SelectList(ctx.Locations.ToList(), "ID", "Name");
+
+            var model = new BossEdit
+            {
+                Name = detail.Name,
+                Description = detail.Description,
+                Health = detail.Health,
+                Weakness = detail.Weakness,
+                Location = detail.Location,
+                LocationID = detail.LocationID,
+                Tips = detail.Tips
+            };
+
+            return View(model);
+        }
+        //POST: Boss/Edit
+        [HttpPost]
+        public ActionResult Edit(int id, BossEdit model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            if (model.ID != id)
+            {
+                ModelState.AddModelError("", "Wrong ID");
+                return View(model);
+            }
+
+            var service = new BossService();
+
+            if (service.UpdateBoss(model))
+            {
+                TempData["SaveResult"] = "Boss updated";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Error");
+            return View(model);
+        }
     }
 }

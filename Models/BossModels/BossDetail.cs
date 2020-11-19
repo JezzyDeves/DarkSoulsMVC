@@ -15,5 +15,7 @@ namespace Models.BossModels
         public string Description { get; set; }
         public string Weakness { get; set; }
         public string Tips { get; set; }
+        public int LocationID { get; set; }
+        public Location Location { get; set; }
     }
 }

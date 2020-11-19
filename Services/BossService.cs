@@ -35,7 +35,9 @@ namespace Services
                 Description = entity.Description,
                 Health = entity.Health,
                 Weakness = entity.Weakness,
-                Tips = entity.Tips
+                Tips = entity.Tips,
+                Location = entity.Location,
+                LocationID = entity.LocationID
             };
         }
 
@@ -53,6 +55,22 @@ namespace Services
             };
 
             ctx.Bosses.Add(entity);
+            return ctx.SaveChanges() == 1;
+        }
+
+        public bool UpdateBoss(BossEdit model)
+        {
+            var entity = ctx.Bosses.Single(e => e.ID == model.ID);
+
+            entity.Name = model.Name;
+            entity.Health = model.Health;
+            entity.Description = model.Description;
+            entity.Weakness = model.Weakness;
+            entity.Tips = model.Tips;
+            entity.Location = model.Location;
+            entity.LocationID = model.LocationID;
+
+
             return ctx.SaveChanges() == 1;
         }
     }
