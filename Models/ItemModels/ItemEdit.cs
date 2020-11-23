@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Models.ItemModels
 {
-    public class ItemList
+    public class ItemEdit
     {
         public int ItemID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public Location Location { get; set; }
+        public virtual Location Location { get; set; }
         public int LocationID { get; set; }
     }
 }

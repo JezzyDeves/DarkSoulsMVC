@@ -24,6 +24,19 @@ namespace Services
             return query.ToArray();
         }
 
+        public ItemList GetItemByID(int id)
+        {
+            var entity = ctx.Items.Single(e => e.ItemID == id);
+
+            return new ItemList
+            {
+                ItemID = entity.ItemID,
+                Name = entity.Name,
+                Description = entity.Description,
+                LocationID = entity.LocationID
+            };
+        }
+
         public bool CreateItem(ItemCreate model)
         {
             var entity = new Item
@@ -34,6 +47,18 @@ namespace Services
             };
 
             ctx.Items.Add(entity);
+            return ctx.SaveChanges() == 1;
+        }
+
+        public bool UpdateItem(ItemEdit model)
+        {
+            var entity = ctx.Items.Single(e => e.ItemID == model.ItemID);
+            entity.ItemID = model.ItemID;
+            entity.Name = model.Name;
+            entity.Description = model.Description;
+            entity.Location = model.Location;
+            entity.LocationID = model.LocationID;
+
             return ctx.SaveChanges() == 1;
         }
     }
