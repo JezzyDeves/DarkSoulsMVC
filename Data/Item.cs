@@ -11,7 +11,7 @@ namespace Data
     public class Item
     {
         [Key]
-        public int ID { get; set; }
+        public int ItemID { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

@@ -171,6 +171,7 @@
     <Compile Include="Controllers\BossController.cs" />
     <Compile Include="Controllers\EnemyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -252,6 +253,8 @@
     <Content Include="Views\Enemy\Details.cshtml" />
     <Content Include="Views\Enemy\Edit.cshtml" />
     <Content Include="Views\Enemy\Delete.cshtml" />
+    <Content Include="Views\Item\Index.cshtml" />
+    <Content Include="Views\Item\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
