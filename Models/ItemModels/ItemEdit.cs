@@ -12,7 +12,6 @@ namespace Models.ItemModels
         public int ItemID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public virtual Location Location { get; set; }
         public int LocationID { get; set; }
     }
 }

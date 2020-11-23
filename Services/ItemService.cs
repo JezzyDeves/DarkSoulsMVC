@@ -56,7 +56,6 @@ namespace Services
             entity.ItemID = model.ItemID;
             entity.Name = model.Name;
             entity.Description = model.Description;
-            entity.Location = model.Location;
             entity.LocationID = model.LocationID;
 
             return ctx.SaveChanges() == 1;
