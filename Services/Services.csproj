@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="BossService.cs" />
     <Compile Include="EnemyService.cs" />
+    <Compile Include="ItemService.cs" />
     <Compile Include="LocationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

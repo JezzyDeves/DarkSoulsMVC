@@ -62,6 +62,8 @@
     <Compile Include="EnemyModels\EnemyDetail.cs" />
     <Compile Include="EnemyModels\EnemyEdit.cs" />
     <Compile Include="EnemyModels\EnemyListItem.cs" />
+    <Compile Include="ItemModels\ItemCreate.cs" />
+    <Compile Include="ItemModels\ItemList.cs" />
     <Compile Include="LocationModels\LocationCreate.cs" />
     <Compile Include="LocationModels\LocationDetail.cs" />
     <Compile Include="LocationModels\LocationEdit.cs" />
