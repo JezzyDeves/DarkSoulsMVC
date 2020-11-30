@@ -4,36 +4,55 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<style>
+    #main {
+        background-color: tan;
+    }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
+    #create {
+        border-style: double;
+        border-width: 3px;
+    }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.EnemyID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.EnemyID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.EnemyID })
-        </td>
-    </tr>
-}
+    #title {
+        color: white;
+        text-decoration: underline overline;
+    }
+</style>
 
-</table>
+<h2 id="title">Enemies</h2>
+
+<div id="main">
+    <p id="create">
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.EnemyID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.EnemyID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.EnemyID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

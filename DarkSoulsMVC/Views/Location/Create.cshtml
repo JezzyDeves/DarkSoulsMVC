@@ -4,7 +4,19 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<style>
+    .form-horizontal {
+        background-color: tan;
+        padding: 10px;
+    }
+
+    #title {
+        color: white;
+        text-decoration: underline overline;
+    }
+</style>
+
+<h2 id="title">Add A Location</h2>
 
 @using (Html.BeginForm()) 
 {

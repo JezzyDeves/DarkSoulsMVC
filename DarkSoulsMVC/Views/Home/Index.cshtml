@@ -5,13 +5,29 @@
     #main {
         background-color: tan;
         text-align: center;
+        border-radius: 15px;
+    }
+
+    .jumbotron {
+        margin-top: 25px;
+        background-color: #4f3b03;
+        color: white;
+    }
+
+    #title {
+        text-decoration: underline;
+        text-align: center;
+    }
+
+    .lead {
+        text-align: center;
     }
 </style>
 
 <div class="jumbotron">
-    <h1>Dark Souls: MVC Edition</h1>
+    <h1 id="title">Dark Souls: MVC Edition</h1>
     <p class="lead">This is a fan made, Dark Souls themed MVC made for a final project for Elevenfifty Academy.</p>
-    <p><a class="btn btn-primary btn-lg" @Html.ActionLink("About", "About", "Home")</a></p>
+    @*<p><a class="btn btn-primary btn-lg" @Html.ActionLink("About", "About", "Home")</a></p>*@
 </div>
 
 <div class="row" id="main">
@@ -21,7 +37,7 @@
             Dark Souls: MVC Edition is very simple to use. Simply navigate to the type of entity you wish to view and it will pull up a list
             of anything that belongs in that catagory!
         </p>
-        <p><a class="btn btn-default" @Html.ActionLink("Contact Us", "Contact", "Home")</a></p>
+        @*<p><a class="btn btn-default" @Html.ActionLink("Contact Us", "Contact", "Home")</a></p>*@
     </div>
     @*<div class="col-md-4">
         <h2>Get more libraries</h2>
