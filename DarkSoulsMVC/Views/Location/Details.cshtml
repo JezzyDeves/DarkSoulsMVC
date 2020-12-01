@@ -1,0 +1,75 @@
+﻿@model Models.LocationModels.LocationDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    #main {
+        background-color: tan;
+    }
+
+    #title {
+        color: white;
+        text-decoration: underline overline;
+    }
+
+    #links {
+        background-color: tan;
+        border-style: solid;
+        border-width: 3px;
+        border-color: #4f3b03;
+    }
+</style>
+
+<h2 id="title">Details</h2>
+
+<div id="main">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bosses)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bosses)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Enemies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Enemies)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Items)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Items)
+        </dd>
+
+    </dl>
+</div>
+<p id="links">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

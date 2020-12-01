@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Models.BossModels.BossListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    #main {
+        background-color: tan;
+    }
+
+    #create {
+        border-style: double;
+        border-width: 3px;
+    }
+
+    #title {
+        color: white;
+        text-decoration: underline overline;
+    }
+</style>
+
+<h2 id="title">Bosses</h2>
+
+<div id="main">
+    <p id="create">
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Health)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Health)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+

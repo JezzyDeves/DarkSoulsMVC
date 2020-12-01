@@ -1,24 +1,46 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<style>
+    #main {
+        background-color: tan;
+        text-align: center;
+        border-radius: 15px;
+    }
+
+    .jumbotron {
+        margin-top: 25px;
+        background-color: #4f3b03;
+        color: white;
+    }
+
+    #title {
+        text-decoration: underline;
+        text-align: center;
+    }
+
+    .lead {
+        text-align: center;
+    }
+</style>
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1 id="title">Dark Souls: MVC Edition</h1>
+    <p class="lead">This is a fan made, Dark Souls themed MVC made for a final project for Elevenfifty Academy.</p>
+    @*<p><a class="btn btn-primary btn-lg" @Html.ActionLink("About", "About", "Home")</a></p>*@
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
+<div class="row" id="main">
+    <div class="col-lg-12">
+        <h1>How to use this site</h1>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Dark Souls: MVC Edition is very simple to use. Simply navigate to the type of entity you wish to view and it will pull up a list
+            of anything that belongs in that catagory! When creating anything you will need to first create a Location for it to have. Then when creating anything else just use the drop down menu to select the location you want that
+            entity to belong to!
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        @*<p><a class="btn btn-default" @Html.ActionLink("Contact Us", "Contact", "Home")</a></p>*@
     </div>
-    <div class="col-md-4">
+    @*<div class="col-md-4">
         <h2>Get more libraries</h2>
         <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
@@ -27,5 +49,5 @@
         <h2>Web Hosting</h2>
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+    </div>*@
 </div>

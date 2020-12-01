@@ -1,0 +1,74 @@
+﻿@model Models.EnemyModels.EnemyDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<style>
+    #main {
+        background-color: tan;
+    }
+
+    #title {
+        color: white;
+        text-decoration: underline overline;
+    }
+</style>
+
+<h2 id="title">Delete</h2>
+
+<h3 id="title">Are you sure you want to delete this?</h3>
+<div id="main">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EnemyID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnemyID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Health)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Health)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
