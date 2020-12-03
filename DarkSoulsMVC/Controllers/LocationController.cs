@@ -23,9 +23,6 @@ namespace DarkSoulsMVC.Controllers
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             var service = new LocationService();
-            //var model = service.GetLocations();
-            //var locations = from l in model
-            //                select l;
             var locations = from location in service.GetLocations() select location;
 
             switch (sortOrder)
