@@ -1,4 +1,5 @@
-﻿using Models.LocationModels;
+﻿using Data;
+using Models.LocationModels;
 using Services;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,31 @@ namespace DarkSoulsMVC.Controllers
 {
     public class LocationController : Controller
     {
+        private readonly ApplicationDbContext ctx = new ApplicationDbContext();
         // GET: Location
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var service = new LocationService();
+        //    var model = service.GetLocations();
+        //    return View(model);
+        //}
+        public ActionResult Index(string sortOrder)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             var service = new LocationService();
-            var model = service.GetLocations();
-            return View(model);
+            var locations = from location in service.GetLocations() select location;
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    locations = locations.OrderBy(location => location.Name);
+                    break;
+                default:
+                    locations.OrderBy(l => l.ID);
+                    break;
+            }
+
+            return View(locations.ToList());
         }
 
         //GET: Location/Create

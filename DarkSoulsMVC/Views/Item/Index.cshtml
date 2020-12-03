@@ -29,10 +29,7 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ItemID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm })
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
@@ -43,9 +40,6 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ItemID)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>

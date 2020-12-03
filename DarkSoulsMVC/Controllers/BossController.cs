@@ -13,11 +13,29 @@ namespace DarkSoulsMVC.Controllers
     {
         private readonly ApplicationDbContext ctx = new ApplicationDbContext();
         // GET: Boss
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var service = new BossService();
+        //    var model = service.GetBosses();
+        //    return View(model);
+        //}
+        public ActionResult Index(string sortOrder)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             var service = new BossService();
-            var model = service.GetBosses();
-            return View(model);
+            var bosses = from boss in service.GetBosses() select boss;
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    bosses = bosses.OrderBy(boss => boss.Name);
+                    break;
+                default:
+                    bosses.OrderBy(b => b.ID);
+                    break;
+            }
+
+            return View(bosses.ToList());
         }
 
         //GET: Boss/Create

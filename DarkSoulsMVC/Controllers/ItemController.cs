@@ -14,12 +14,30 @@ namespace DarkSoulsMVC.Controllers
         private readonly ApplicationDbContext ctx = new ApplicationDbContext();
 
         // GET: Item
-        public ActionResult Index()
-        {
-            var service = new ItemService();
-            var model = service.GetItems();
+        //public ActionResult Index()
+        //{
+        //    var service = new ItemService();
+        //    var model = service.GetItems();
 
-            return View(model);
+        //    return View(model);
+        //}
+        public ActionResult Index(string sortOrder)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            var service = new ItemService();
+            var items = from item in service.GetItems() select item;
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    items = items.OrderBy(location => location.Name);
+                    break;
+                default:
+                    items.OrderBy(i => i.ItemID);
+                    break;
+            }
+
+            return View(items.ToList());
         }
         //GET: Item/Detail
         public ActionResult Details(int id)
